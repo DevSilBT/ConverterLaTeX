@@ -1,0 +1,28 @@
+# --- Entornos Virtuales (¡Lo más importante!) ---
+venv/
+venv_latexconverter/
+env/
+.venv/
+
+# --- Archivos compilados de Python (Basura automática) ---
+__pycache__/
+*.py[cod]
+
+# --- Variables de entorno y secretos (Seguridad) ---
+.env
+.DS_Store
+
+# --- IDEs ---
+.vscode/
+.idea/
+
+# --- Archivos temporales de LaTeX ---
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.pdf
+# (Opcional: comenta *.pdf si quieres subir el PDF final, pero generalmente no se recomienda)

@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amsfonts, amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{enumitem}
+\usepackage[left=2.5cm,right=2.5cm,top=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{datetime}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Fecha de generación: {{ fecha }}}
+\lhead{OCR a LaTeX - Proposiciones Lógicas}
+\cfoot{\thepage}
+
+\title{\Huge \textbf{EJERCICIOS DE PROPOSICIONES LÓGICAS RECONOCIDOS POR OCR}}
+\author{}
+\date{}
+
+\begin{document}
+
+\maketitle
+\vspace{0.5cm}
+
+{% for ej in ejercicios %}
+\section*{{ ej["ejercicio"] }}
+{% for item in ej["items"] %}
+
+{% if item.tema %}
+\subsection*{Tema: {{ item["tema"] }}}
+{% endif %}
+{% if item.subtema %}
+\subsubsection*{Subtema: {{ item["subtema"] }}}
+{% endif %}
+
+\begin{itemize}
+    \item \textbf{Enunciado:} {{ item["enunciado"] }}
+
+    {% if item.respuesta %}
+    \\ \textbf{Respuesta:} {{ item["respuesta"] }}
+    {% endif %}
+    {% if item.tipo %}
+    \\ \textbf{Tipo de proposición:} {{ item["tipo"] }}
+    {% endif %}
+    {% if item.negacion %}
+    \\ \textbf{Negación:} {{ item["negacion"] }}
+    {% endif %}
+    {% if item.antecedente %}
+    \\ \textbf{Antecedente:} {{ item["antecedente"] }}
+    {% endif %}
+    {% if item.consecuente %}
+    \\ \textbf{Consecuente:} {{ item["consecuente"] }}
+    {% endif %}
+    {% if item.analisis %}
+    \\ \textbf{Análisis:} {{ item["analisis"] }}
+    {% endif %}
+\end{itemize}
+
+{% if item.teorema %}
+\begin{tcolorbox}[colback=blue!5!white,colframe=blue!75!black,title=Teorema]
+{{ item["teorema"] }}
+\end{tcolorbox}
+{% endif %}
+
+{% if item.definicion %}
+\begin{tcolorbox}[colback=yellow!5!white,colframe=yellow!60!black,title=Definición]
+{{ item["definicion"] }}
+\end{tcolorbox}
+{% endif %}
+
+{% if item.formula %}
+\begin{equation}
+{{ item["formula"] }}
+\end{equation}
+{% endif %}
+
+\vspace{0.7cm}
+{% endfor %}
+{% endfor %}
+
+\end{document}
